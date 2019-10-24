@@ -9,16 +9,13 @@
         $mass = sortArray($mass, $massCount, $i);
     }
 
-
-    //echo '<br>' . print_r($mass);
-
     echo '</pre>';
+    //========================================
 
     function sortArray($mass, $massCount, $i)
     {
         $key = $massCount;
         while ($key > $i) {
-            //echo '<br>' . $mass[$key];
             $keyA = $key;
             $keyB = $key - 1;
             $a = $mass[$keyA];
