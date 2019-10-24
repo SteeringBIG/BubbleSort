@@ -1,32 +1,23 @@
 <?php
     echo '<pre>';
 
-    $mass = array();
-    $massCount = 9;
-    $nStart = 0;
-    $nEnd = 100;
-    $key=0;
-    while ($key++ < $massCount) {
-        $mass[$key] = rand($nStart, $nEnd);
-    }
+    $mass = CreateArray();
 
-    echo '<br>' . print_r($mass) . '<br>';
-
-    $key = $massCount;
-    $keySort = 1;
+    $massCount = count($mass);
     $i = 0;
-    while ($i++ < $keySort) {
-        $mass = sortArray($mass, $key, $keySort);
+    while ($i++ < $massCount) {
+        $mass = sortArray($mass, $massCount, $i);
     }
 
-    //echo $massCount;
-    echo '<br>' . print_r($mass);
+
+    //echo '<br>' . print_r($mass);
 
     echo '</pre>';
 
-    function sortArray($mass, $key, $keySort)
+    function sortArray($mass, $massCount, $i)
     {
-        while ($key > $keySort) {
+        $key = $massCount;
+        while ($key > $i) {
             //echo '<br>' . $mass[$key];
             $keyA = $key;
             $keyB = $key - 1;
@@ -40,6 +31,22 @@
 
             $key = $key - 1;
         }
+        echo '<br>' . print_r($mass);
+        return $mass;
+    }
+
+    function CreateArray()
+    {
+        $mass = array();
+        $massCount = 9;
+        $nStart = 0;
+        $nEnd = 100;
+        $key=0;
+        while ($key++ < $massCount) {
+            $mass[$key] = rand($nStart, $nEnd);
+        }
+        echo '<br>' . print_r($mass) . '<br>';
+        echo '<br>-------<br>';
         return $mass;
     }
 ?>
