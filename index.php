@@ -28,20 +28,25 @@
     echo '</pre>';
     //========================================
 
-    function sortArray($mass, $massCount, $i)
+    function sortArray($mass, $key, $i)
     {
-        $key = $massCount;
+//        $key = $massCount;
         while ($key > $i) {
-            $keyA = $key;
-            $keyB = $key - 1;
-            $a = $mass[$keyA];
-            $b = $mass[$keyB];
+//            $keyA = $key;
+//            $keyB = $key - 1;
+//            $a = $mass[$keyA];
+//            $b = $mass[$keyB];
+//
+//            if ($a < $b){
+//                $mass[$key] = $b;
+//                $mass[$key - 1] = $a;
+//            }
 
-            if ($a < $b){
-                $mass[$key] = $b;
+            if ($mass[$key] < $mass[$key - 1]){
+                $a = $mass[$key];
+                $mass[$key] = $mass[$key - 1];
                 $mass[$key - 1] = $a;
             }
-
             $key = $key - 1;
         }
         //echo '<br>' . print_r($mass);
@@ -50,7 +55,6 @@
 
     function BubbleSort($arr)
     {
-
         for ($i = 0; $i < count($arr); $i++) {
             for ($j = $i + 1; $j < count($arr); $j++) {
                 if ($arr[$i] > $arr[$j]) {
@@ -66,7 +70,7 @@
     function CreateArray()
     {
         $mass = array();
-        $massCount = 10000;
+        $massCount = 5000;
         $nStart = 0;
         $nEnd = 100;
         $key=0;
